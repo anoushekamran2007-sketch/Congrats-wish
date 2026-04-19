@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamza Bhai — ACCA Qualified ✦</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--lavender:#c4b5fd;--deep-purple:#4c1d95;--cream:#fdf8f0;--midnight:#1e1133;--text-dark:#2d1b4e;--text-mid:#6b5c8a;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.85rem 1.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(253,248,240,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,181,253,.2);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--deep-purple);}
+.nav-links{display:flex;gap:5px;list-style:none;}
+.nav-links a{text-decoration:none;font-size:12px;color:var(--text-mid);padding:5px 11px;border-radius:999px;transition:all .2s;font-weight:500;}
+.nav-links a:hover,.nav-links a.active{background:var(--deep-purple);color:white;}
+.music-indicator{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--text-mid);cursor:pointer;min-width:95px;}
+.music-bar{display:flex;gap:2px;align-items:flex-end;height:16px;}
+.music-bar span{width:3px;background:#a78bfa;border-radius:2px;animation:bar 1.2s ease infinite;}
+.music-bar span:nth-child(1){height:8px;animation-delay:0s;}
+.music-bar span:nth-child(2){height:14px;animation-delay:.2s;}
+.music-bar span:nth-child(3){height:10px;animation-delay:.4s;}
+@keyframes bar{0%,100%{transform:scaleY(.4);}50%{transform:scaleY(1);}}
+.music-bar.paused span{animation-play-state:paused;}
+#yt-player{position:fixed;bottom:-400px;left:-400px;width:1px;height:1px;opacity:0;pointer-events:none;}
+.page{display:none;min-height:100vh;padding-top:66px;}
+.page.active{display:block;animation:pageIn .4s ease;}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+#page-hero{background:linear-gradient(160deg,#fdf8f0,#f5f0ff,#eef2ff);position:relative;overflow:hidden;}
+.hero-bg-circle{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(196,181,253,.3),transparent 70%);pointer-events:none;}
+.hero-inner{max-width:800px;margin:0 auto;padding:4rem 2rem 3rem;text-align:center;position:relative;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:white;border:1px solid rgba(196,181,253,.5);border-radius:999px;padding:7px 18px;font-size:12px;color:var(--deep-purple);margin-bottom:1.8rem;box-shadow:0 2px 12px rgba(196,181,253,.3);animation:fadeInDown .8s ease both;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6rem);line-height:1.05;color:var(--midnight);margin-bottom:.8rem;animation:fadeInUp .9s ease .1s both;}
+.hero-title .accent{background:linear-gradient(135deg,#a855f7,#6366f1,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-subtitle{font-family:'Caveat',cursive;font-size:1.5rem;color:var(--text-mid);margin-bottom:2rem;animation:fadeInUp .9s ease .2s both;}
+.hero-stats{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:2rem;animation:fadeInUp .9s ease .3s both;}
+.hstat{text-align:center;}
+.hstat-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;background:linear-gradient(135deg,#a855f7,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
+.hstat-label{font-size:11px;color:var(--text-mid);text-transform:uppercase;letter-spacing:.08em;}
+.hero-scroll-hint{font-size:12px;color:var(--text-mid);animation:bounce 2s ease infinite;margin-top:.8rem;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+.floating-emojis{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.fem{position:absolute;font-size:22px;animation:floatAround linear infinite;opacity:.45;}
+@keyframes floatAround{0%{transform:translateY(0) rotate(0deg);opacity:.3;}50%{opacity:.7;}100%{transform:translateY(-80px) rotate(20deg);opacity:0;}}
+#page-journey{background:linear-gradient(180deg,#fdf8f0,#f0ebff,#fdf8f0);overflow:hidden;position:relative;}
+.journey-header{text-align:center;padding:3rem 2rem 1rem;}
+.section-label{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#a78bfa;margin-bottom:.6rem;font-weight:500;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--midnight);margin-bottom:.4rem;}
+.section-sub{font-family:'Caveat',cursive;font-size:1.2rem;color:var(--text-mid);}
+.chapters-wrap{max-width:860px;margin:0 auto;padding:1.5rem 2rem 4rem;display:flex;flex-direction:column;}
+.chapter{display:grid;grid-template-columns:1fr 56px 1fr;align-items:start;min-height:150px;}
+.ch-left{padding:0 1.4rem 2rem 0;display:flex;flex-direction:column;align-items:flex-end;}
+.ch-right{padding:0 0 2rem 1.4rem;display:flex;flex-direction:column;align-items:flex-start;}
+.ch-empty{width:100%;}
+.spine{display:flex;flex-direction:column;align-items:center;padding-top:.4rem;}
+.spine-dot{width:18px;height:18px;border-radius:50%;flex-shrink:0;z-index:1;}
+.spine-line{flex:1;width:2px;min-height:60px;margin-top:4px;}
+.ch-card{border-radius:20px;padding:1.2rem 1.4rem;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;animation:fadeInUp .6s ease both;}
+.ch-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(196,181,253,.25);}
+.ch-card::after{content:attr(data-ch);position:absolute;bottom:-8px;right:8px;font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;opacity:.06;color:var(--deep-purple);line-height:1;}
+.ch-icon{font-size:1.8rem;margin-bottom:.4rem;}
+.ch-tag{font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:.3rem;}
+.ch-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--midnight);margin-bottom:.35rem;}
+.ch-text{font-size:13px;color:var(--text-mid);line-height:1.65;}
+.ch-lavender{background:linear-gradient(135deg,#ede9fe,#ddd6fe);border:1px solid #c4b5fd;}.ch-lavender .ch-tag{color:#7c3aed;}
+.ch-pink{background:linear-gradient(135deg,#fdf2f8,#fce7f3);border:1px solid #f9a8d4;}.ch-pink .ch-tag{color:#be185d;}
+.ch-mint{background:linear-gradient(135deg,#ecfdf5,#d1fae5);border:1px solid #6ee7b7;}.ch-mint .ch-tag{color:#047857;}
+.ch-sky{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #93c5fd;}.ch-sky .ch-tag{color:#1d4ed8;}
+.ch-gold{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1px solid #fcd34d;}.ch-gold .ch-tag{color:#92400e;}
+.ch-rose{background:linear-gradient(135deg,#fff1f2,#ffe4e6);border:2px solid #fda4af;}.ch-rose .ch-tag{color:#be123c;}
+.j-deco{position:absolute;pointer-events:none;font-size:28px;opacity:.12;animation:floatAround linear infinite;}
+#page-letter{background:linear-gradient(160deg,#1e1133,#2d1b4e 60%,#1a0935);position:relative;overflow:hidden;}
+.letter-stars{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.star-dot{position:absolute;border-radius:50%;background:white;animation:twinkle 3s ease-in-out infinite;}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(1);}50%{opacity:1;transform:scale(1.4);}}
+.letter-wrap{max-width:640px;margin:0 auto;padding:3rem 2rem 4rem;position:relative;}
+.letter-header{text-align:center;padding-top:2rem;padding-bottom:1.5rem;}
+.letter-paper{background:rgba(255,255,255,.04);border:1px solid rgba(196,181,253,.2);border-radius:24px;padding:2.5rem;backdrop-filter:blur(10px);}
+.letter-from{font-family:'Caveat',cursive;font-size:1rem;color:#f9a8d4;margin-bottom:1.5rem;}
+.letter-body{font-size:15px;line-height:2;color:rgba(255,255,255,.85);}
+.letter-body p{margin-bottom:1.2rem;}
+.letter-body .hl{color:#c4b5fd;font-style:italic;}
+.letter-sig{font-family:'Caveat',cursive;font-size:1.4rem;color:#fbcfe8;margin-top:1.5rem;}
+.letter-div{height:1px;background:linear-gradient(90deg,transparent,rgba(196,181,253,.4),transparent);margin:1.2rem 0;}
+#page-games{background:var(--cream);}
+.games-section-header{text-align:center;padding:3rem 2rem 1.5rem;}
+.games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(295px,1fr));gap:18px;max-width:900px;margin:0 auto;padding:0 2rem 3rem;}
+.game-card{background:white;border-radius:20px;border:1px solid rgba(196,181,253,.3);overflow:hidden;box-shadow:0 4px 20px rgba(196,181,253,.1);}
+.game-header{padding:1.1rem 1.4rem .9rem;border-bottom:1px solid rgba(196,181,253,.15);}
+.game-icon{font-size:1.7rem;margin-bottom:5px;}
+.game-title{font-weight:500;font-size:15px;color:var(--midnight);}
+.game-desc{font-size:12px;color:var(--text-mid);margin-top:2px;}
+.game-body{padding:1.3rem;}
+.memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px;}
+.mem-card{aspect-ratio:1;border-radius:10px;background:linear-gradient(135deg,#ede9fe,#ddd6fe);border:2px solid #c4b5fd;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;transition:all .3s;user-select:none;}
+.mem-card.flipped{background:white;border-color:#a78bfa;}
+.mem-card.matched{background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-color:#34d399;cursor:default;}
+.mem-card.hidden-face{font-size:0;}
+.game-score{font-size:13px;color:var(--text-mid);display:flex;justify-content:space-between;}
+#balloon-canvas{display:block;width:100%;border-radius:12px;cursor:crosshair;background:linear-gradient(135deg,#f0ebff,#fce7f3);}
+.balloon-score{font-size:13px;color:var(--text-mid);display:flex;justify-content:space-between;margin-top:6px;}
+.wordsearch-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;margin-bottom:8px;user-select:none;}
+.ws-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;border-radius:6px;background:#f5f3ff;border:1px solid #ede9fe;cursor:pointer;transition:all .2s;color:var(--text-dark);}
+.ws-cell.selected{background:#ddd6fe;border-color:#a78bfa;}
+.ws-cell.found{background:linear-gradient(135deg,#c4b5fd,#818cf8);color:white;border-color:transparent;}
+.ws-words{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.ws-word{font-size:11px;padding:3px 9px;background:#ede9fe;border-radius:999px;color:var(--deep-purple);font-weight:500;}
+.ws-word.found-word{background:linear-gradient(135deg,#c4b5fd,#818cf8);color:white;text-decoration:line-through;}
+.flipcard-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.flipcard{perspective:900px;cursor:pointer;}
+.flipcard-inner{position:relative;width:100%;padding-top:88%;transition:transform .65s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;}
+.flipcard.flipped .flipcard-inner{transform:rotateY(180deg);}
+.flipcard-front,.flipcard-back{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.7rem;text-align:center;}
+.flipcard-front{background:linear-gradient(135deg,#ede9fe,#ddd6fe);border:2px solid #c4b5fd;}
+.flipcard-front .fc-icon{font-size:1.9rem;margin-bottom:5px;}
+.flipcard-front .fc-hint{font-size:10px;color:#7c3aed;font-weight:500;line-height:1.3;}
+.flipcard-back{background:linear-gradient(135deg,#1e1133,#2d1b4e);border:2px solid #a78bfa;transform:rotateY(180deg);}
+.flipcard-back .fc-star{font-size:1.1rem;margin-bottom:5px;}
+.flipcard-back .fc-msg{font-family:'Caveat',cursive;font-size:13px;color:white;line-height:1.6;white-space:pre-line;}
+.fc-bottom-hint{font-size:11px;color:var(--text-mid);text-align:center;margin-top:10px;}
+#page-memories{background:linear-gradient(160deg,#fdf8f0,#f5f0ff);}
+.memories-inner{max-width:800px;margin:0 auto;padding:2rem 2rem 4rem;}
+.memory-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:16px;margin-top:1rem;}
+.mcb{border-radius:20px;padding:1.7rem;position:relative;overflow:hidden;animation:fadeInUp .6s ease both;}
+.mcb::before{content:attr(data-num);position:absolute;top:-10px;right:8px;font-family:'Playfair Display',serif;font-size:5rem;font-weight:700;opacity:.07;color:var(--deep-purple);line-height:1;}
+.mcb.purple{background:linear-gradient(135deg,#ede9fe,#ddd6fe);border:1px solid #c4b5fd;}
+.mcb.pink{background:linear-gradient(135deg,#fdf2f8,#fce7f3);border:1px solid #f9a8d4;}
+.mcb.mint{background:linear-gradient(135deg,#ecfdf5,#d1fae5);border:1px solid #6ee7b7;}
+.mcb.sky{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #93c5fd;}
+.mcb.gold{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1px solid #fcd34d;}
+.mem-emoji{font-size:2rem;margin-bottom:10px;}
+.mem-title{font-weight:500;font-size:15px;color:var(--midnight);margin-bottom:6px;}
+.mem-text{font-size:13px;color:var(--text-mid);line-height:1.7;}
+#page-final{background:linear-gradient(135deg,#1e1133,#2d1b4e 50%,#0f172a);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;}
+.final-inner{position:relative;z-index:1;padding:3rem 2rem;}
+.final-ring{width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,#c4b5fd,#818cf8,#6ee7b7);display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;animation:rotateSlow 8s linear infinite;position:relative;}
+@keyframes rotateSlow{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.final-ring-inner{width:140px;height:140px;border-radius:50%;background:#1e1133;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:absolute;animation:rotateSlow 8s linear infinite reverse;}
+.final-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,4rem);color:white;margin-bottom:1rem;line-height:1.1;}
+.final-sub{font-family:'Caveat',cursive;font-size:1.5rem;color:var(--lavender);margin-bottom:2rem;}
+.final-quote{max-width:500px;font-size:15px;color:rgba(255,255,255,.7);line-height:1.8;margin:0 auto 2.5rem;font-style:italic;}
+.confetti-btn{background:linear-gradient(135deg,#c4b5fd,#818cf8);border:none;border-radius:999px;padding:13px 38px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:white;cursor:pointer;box-shadow:0 4px 20px rgba(196,181,253,.4);transition:all .3s;}
+.confetti-btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(196,181,253,.5);}
+.confetti-piece{position:absolute;width:10px;height:10px;border-radius:2px;animation:confettifall linear forwards;pointer-events:none;}
+@keyframes confettifall{0%{transform:translateY(-100px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+.final-stars{position:absolute;inset:0;pointer-events:none;}
+@media(max-width:620px){
+  .chapter{grid-template-columns:32px 1fr;}
+  .ch-left{display:none;}
+  .ch-right{grid-column:2;padding:0 0 1.4rem .8rem;}
+  .spine{grid-column:1;}
+  .nav-links{display:none;}
+  nav{padding:.8rem 1rem;}
+}
+</style>
+</head>
+<body>
+<div id="yt-player"></div>
+<nav>
+  <div class="nav-logo">✦ Hamza Bhai</div>
+  <ul class="nav-links">
+    <li><a href="#" class="active" onclick="showPage('hero',this);return false;">Home</a></li>
+    <li><a href="#" onclick="showPage('journey',this);return false;">Journey</a></li>
+    <li><a href="#" onclick="showPage('letter',this);return false;">Letter</a></li>
+    <li><a href="#" onclick="showPage('games',this);return false;">Games</a></li>
+    <li><a href="#" onclick="showPage('memories',this);return false;">Memories</a></li>
+    <li><a href="#" onclick="showPage('final',this);return false;">Finale</a></li>
+  </ul>
+  <div class="music-indicator" onclick="toggleYT()">
+    <div class="music-bar paused" id="musicBar"><span></span><span></span><span></span></div>
+    <span id="musicLabel">♪ Kaavish</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page active" id="page-hero">
+  <div class="floating-emojis">
+    <span class="fem" style="left:5%;top:20%;animation-duration:6s;">📖</span>
+    <span class="fem" style="left:14%;top:60%;animation-duration:8s;animation-delay:1s;">☕</span>
+    <span class="fem" style="left:80%;top:28%;animation-duration:7s;animation-delay:2s;">🌙</span>
+    <span class="fem" style="left:90%;top:68%;animation-duration:5s;animation-delay:.5s;">✨</span>
+    <span class="fem" style="left:50%;top:80%;animation-duration:9s;animation-delay:3s;">🏆</span>
+    <span class="fem" style="left:35%;top:15%;animation-duration:7.5s;animation-delay:1.5s;">🎵</span>
+  </div>
+  <div class="hero-bg-circle" style="width:500px;height:500px;top:-100px;right:-150px;"></div>
+  <div class="hero-bg-circle" style="width:300px;height:300px;bottom:50px;left:-100px;"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span>🎓</span> ACCA Qualified — 2026</div>
+    <h1 class="hero-title">Hamza<br><span class="accent">Bhai,</span><br>you made it.</h1>
+    <p class="hero-subtitle">after all those nights, all those pages, all that fight</p>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-num">13</span><span class="hstat-label">Exams Conquered</span></div>
+      <div class="hstat"><span class="hstat-num">∞</span><span class="hstat-label">Cups of Coffee</span></div>
+      <div class="hstat"><span class="hstat-num">100%</span><span class="hstat-label">Pure Dedication</span></div>
+      <div class="hstat"><span class="hstat-num">1</span><span class="hstat-label">Legendary ACCA Affiliate</span></div>
+    </div>
+    <p class="hero-scroll-hint">↓ explore your story ↓</p>
+  </div>
+</div>
+
+<!-- JOURNEY -->
+<div class="page" id="page-journey">
+  <span class="j-deco" style="left:3%;top:18%;animation-duration:9s;">🌙</span>
+  <span class="j-deco" style="right:4%;top:32%;animation-duration:11s;animation-delay:2s;">☕</span>
+  <span class="j-deco" style="left:5%;top:56%;animation-duration:8s;animation-delay:1s;">📖</span>
+  <span class="j-deco" style="right:4%;top:72%;animation-duration:12s;animation-delay:3s;">✨</span>
+  <div class="journey-header">
+    <span class="section-label">the path you walked</span>
+    <h2 class="section-title">Hamza Bhai's Story</h2>
+    <p class="section-sub">six chapters that changed everything</p>
+  </div>
+  <div class="chapters-wrap">
+    <div class="chapter">
+      <div class="ch-left">
+        <div class="ch-card ch-lavender" data-ch="1" style="animation-delay:.1s;text-align:right;">
+          <div class="ch-icon">🌱</div><div class="ch-tag">Chapter 1</div>
+          <div class="ch-title">The Brave Beginning</div>
+          <div class="ch-text">You said yes to a dream most people wouldn't dare to chase. That first enrollment took more courage than anyone around you knows.</div>
+        </div>
+      </div>
+      <div class="spine">
+        <div class="spine-dot" style="background:#c4b5fd;box-shadow:0 0 0 3px #c4b5fd,0 0 0 5px #ede9fe;"></div>
+        <div class="spine-line" style="background:linear-gradient(to bottom,#c4b5fd,#f9a8d4);"></div>
+      </div>
+      <div class="ch-empty"></div>
+    </div>
+    <div class="chapter">
+      <div class="ch-empty"></div>
+      <div class="spine">
+        <div class="spine-dot" style="background:#f9a8d4;box-shadow:0 0 0 3px #f9a8d4,0 0 0 5px #fce7f3;"></div>
+        <div class="spine-line" style="background:linear-gradient(to bottom,#f9a8d4,#6ee7b7);"></div>
+      </div>
+      <div class="ch-right">
+        <div class="ch-card ch-pink" data-ch="2" style="animation-delay:.2s;">
+          <div class="ch-icon">🌙</div><div class="ch-tag">Chapter 2</div>
+          <div class="ch-title">The Sleepless Nights</div>
+          <div class="ch-text">2 AM, textbooks open, Kaavish playing softly. While the world slept, you were quietly and patiently building your future.</div>
+        </div>
+      </div>
+    </div>
+    <div class="chapter">
+      <div class="ch-left">
+        <div class="ch-card ch-mint" data-ch="3" style="animation-delay:.3s;text-align:right;">
+          <div class="ch-icon">⛈️</div><div class="ch-tag">Chapter 3</div>
+          <div class="ch-title">The Hard Days</div>
+          <div class="ch-text">There were days the numbers blurred and doubt came in heavy, thoughts that kinda fogged out things. But you showed up anyway — that is the rarest kind of strength a person can have.</div>
+        </div>
+      </div>
+      <div class="spine">
+        <div class="spine-dot" style="background:#6ee7b7;box-shadow:0 0 0 3px #6ee7b7,0 0 0 5px #d1fae5;"></div>
+        <div class="spine-line" style="background:linear-gradient(to bottom,#6ee7b7,#93c5fd);"></div>
+      </div>
+      <div class="ch-empty"></div>
+    </div>
+    <div class="chapter">
+      <div class="ch-empty"></div>
+      <div class="spine">
+        <div class="spine-dot" style="background:#93c5fd;box-shadow:0 0 0 3px #93c5fd,0 0 0 5px #dbeafe;"></div>
+        <div class="spine-line" style="background:linear-gradient(to bottom,#93c5fd,#fcd34d);"></div>
+      </div>
+      <div class="ch-right">
+        <div class="ch-card ch-sky" data-ch="4" style="animation-delay:.4s;">
+          <div class="ch-icon">☕</div><div class="ch-tag">Chapter 4</div>
+          <div class="ch-title">The Coffee & Kaavish Ritual</div>
+          <div class="ch-text">Every study session had its own sacred rhythm — coffee first- oh, just coffee? A BOTTLE OF COFFEE, then Kaavish, then the books. That little ritual carried you through everything.</div>
+        </div>
+      </div>
+    </div>
+    <div class="chapter">
+      <div class="ch-left">
+        <div class="ch-card ch-gold" data-ch="5" style="animation-delay:.5s;text-align:right;">
+          <div class="ch-icon">🏃</div><div class="ch-tag">Chapter 5</div>
+          <div class="ch-title">The Final Push</div>
+          <div class="ch-text">When the finish line came into sight, you didn't slow down — you ran harder. That last exam season was nothing short of absolutely heroic.</div>
+        </div>
+      </div>
+      <div class="spine">
+        <div class="spine-dot" style="background:#fcd34d;box-shadow:0 0 0 3px #fcd34d,0 0 0 5px #fef3c7;"></div>
+        <div class="spine-line" style="background:linear-gradient(to bottom,#fcd34d,#fda4af);"></div>
+      </div>
+      <div class="ch-empty"></div>
+    </div>
+    <div class="chapter">
+      <div class="ch-empty"></div>
+      <div class="spine">
+        <div class="spine-dot" style="background:#fda4af;width:24px;height:24px;box-shadow:0 0 0 4px #fda4af,0 0 20px rgba(244,63,94,.4);"></div>
+      </div>
+      <div class="ch-right">
+        <div class="ch-card ch-rose" data-ch="6" style="animation-delay:.6s;">
+          <div class="ch-icon">🎓</div>
+          <div class="ch-tag" style="color:#be123c;">Chapter 6 ✦ The Finale</div>
+          <div class="ch-title" style="font-size:1.15rem;">ACCA Qualified — 2026</div>
+          <div class="ch-text">The letters are there. The dream is real. Everything you gave up quietly was secretly, patiently building this beautiful, well-deserved moment.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LETTER -->
+<div class="page" id="page-letter">
+  <div class="letter-stars" id="letterStars"></div>
+  <div class="letter-wrap">
+    <div class="letter-header">
+      <span class="section-label" style="color:#f9a8d4;">from your proud sister</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:white;margin-bottom:.4rem;">A Letter for You</h2>
+      <p style="font-family:'Caveat',cursive;font-size:1.2rem;color:#c4b5fd;">written with so much love</p>
+    </div>
+    <div class="letter-paper">
+      <div class="letter-from">Dear Hamza Bhai,</div>
+      <div class="letter-body">
+        <p>I don't think you fully understand how proud I am of you. Not proud in the way people say it casually — I mean <span class="hl">genuinely, deeply, quietly proud</span>. The kind of proud that sits in your chest and doesn't have the right words.</p>
+        <div class="letter-div"></div>
+        <p>I watched you choose your books over everything. I watched you wake up early and sleep late. I watched you put on Kaavish and just... <span class="hl">disappear into the work</span>. And I always knew — I always knew this day was coming.</p>
+        <div class="letter-div"></div>
+        <p>The ACCA isn't just a qualification. It's a <span class="hl">record of every time you didn't quit</span>. It's proof that when something mattered to you, you gave it everything — quietly, consistently, without needing applause.</p>
+        <div class="letter-div"></div>
+        <p>The world is going to feel your presence now, Hamza Bhai. You have earned every bit of what is coming next. I'll forever be proud and be by your side no matter what step next you might take. <span class="hl">Go be great.</span></p>
+      </div>
+      <div class="letter-div"></div>
+      <div class="letter-sig">With all the love in the world,<br>Your Proud Sister 🤍</div>
+    </div>
+  </div>
+</div>
+
+<!-- GAMES -->
+<div class="page" id="page-games">
+  <div class="games-section-header">
+    <span class="section-label">just for fun</span>
+    <h2 class="section-title">Play a Little, Hamza Bhai</h2>
+    <p class="section-sub">you've studied enough — time to play!</p>
+  </div>
+  <div class="games-grid">
+    <div class="game-card">
+      <div class="game-header"><div class="game-icon">🧠</div><div class="game-title">Memory Match</div><div class="game-desc">Match the pairs — your ACCA brain is primed!</div></div>
+      <div class="game-body">
+        <div class="memory-grid" id="memGrid"></div>
+        <div class="game-score"><span>Moves: <b id="memMoves">0</b></span><span>Matched: <b id="memMatched">0</b>/8</span></div>
+        <button onclick="initMemory()" style="margin-top:10px;background:#ede9fe;border:1px solid #c4b5fd;border-radius:8px;padding:6px 16px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;color:#4c1d95;">Reset</button>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-header"><div class="game-icon">🎈</div><div class="game-title">Balloon Pop</div><div class="game-desc">Pop the balloons — each holds a message!</div></div>
+      <div class="game-body">
+        <canvas id="balloon-canvas" width="300" height="200"></canvas>
+        <div class="balloon-score">
+          <span>Popped: <b id="popCount">0</b>/8</span>
+          <span id="popMsg" style="color:#a78bfa;font-family:'Caveat',cursive;font-size:15px;max-width:160px;text-align:right;"></span>
+        </div>
+        <button onclick="initBalloons()" style="margin-top:8px;background:#fce7f3;border:1px solid #f9a8d4;border-radius:8px;padding:6px 16px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;color:#be185d;">New Balloons</button>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-header"><div class="game-icon">🔍</div><div class="game-title">Word Search</div><div class="game-desc">Find all the words from Hamza Bhai's story!</div></div>
+      <div class="game-body">
+        <div class="wordsearch-grid" id="wsGrid"></div>
+        <div class="ws-words" id="wsWords"></div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-header"><div class="game-icon">💌</div><div class="game-title">Flip & Reveal</div><div class="game-desc">Tap each card to reveal a hidden message!</div></div>
+      <div class="game-body">
+        <div class="flipcard-wrap" id="flipGrid"></div>
+        <p class="fc-bottom-hint">Tap every card to collect all 8 messages 💜</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MEMORIES -->
+<div class="page" id="page-memories">
+  <div style="text-align:center;padding:3rem 2rem 1.5rem;">
+    <span class="section-label">the little things</span>
+    <h2 class="section-title">Things That Shaped You</h2>
+    <p class="section-sub">the details that made the journey beautiful</p>
+  </div>
+  <div class="memories-inner">
+    <div class="memory-cards">
+      <div class="mcb purple" data-num="01" style="animation-delay:.1s"><div class="mem-emoji">☕</div><div class="mem-title">That first coffee of the study session</div><div class="mem-text">Before the notes, before the books — coffee first. That ritual kept you grounded through every long, relentless session.</div></div>
+      <div class="mcb pink" data-num="02" style="animation-delay:.2s"><div class="mem-emoji">🎵</div><div class="mem-title">Kaavish on repeat</div><div class="mem-text">Gonna mention it everywhere because, every study marathon had a soundtrack. It literally understood what you were going through better than most people did.</div></div>
+      <div class="mcb mint" data-num="03" style="animation-delay:.3s"><div class="mem-emoji">🌙</div><div class="mem-title">2 AM with the textbooks</div><div class="mem-text">Those nights nobody else saw — just you, the lamp, and the will to keep going. That is where the real Hamza was built.</div></div>
+      <div class="mcb sky" data-num="04" style="animation-delay:.4s"><div class="mem-emoji">📝</div><div class="mem-title">Walking into that exam hall</div><div class="mem-text">Every time, you carried all of it — the preparation, the nerves, the sleepless nights — and you walked in anyway.</div></div>
+      <div class="mcb gold" data-num="05" style="animation-delay:.5s"><div class="mem-emoji">🏆</div><div class="mem-title">The result day</div><div class="mem-text">All those months compressed into one notification. You earned every single word of what it said.</div></div>
+      <div class="mcb purple" data-num="06" style="animation-delay:.6s"><div class="mem-emoji">🤍</div><div class="mem-title">The quiet sacrifice</div><div class="mem-text">Cancelled plans, missed events, short replies to long messages. You paid a price nobody saw — and it was worth everything.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FINALE -->
+<div class="page" id="page-final">
+  <div class="final-stars" id="finalStars"></div>
+  <div class="final-inner">
+    <div class="final-ring"><div class="final-ring-inner">🎓</div></div>
+    <h1 class="final-title">Hamza Bhai,<br>ACCA ✦ 2026</h1>
+    <p class="final-sub">the world is yours now</p>
+    <p class="final-quote">"The nights you stayed up, the plans you cancelled, the tears you swallowed — they weren't lost. They were quietly building this exact moment. GO SHINE AND GET READY THIS IS JUST THE BEGINNING."</p>
+    <button class="confetti-btn" onclick="launchConfetti()">🎉 Celebrate!</button>
+  </div>
+</div>
+
+<script>
+function makeStars(id,n){const c=document.getElementById(id);if(!c)return;for(let i=0;i<n;i++){const s=document.createElement('div');s.className='star-dot';const sz=Math.random()*3+1;s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;c.appendChild(s);}}
+makeStars('letterStars',60);makeStars('finalStars',100);
+
+const kaavishSongs=[
+  {title:'soft',ytId:'TqJDs3bTcfY'},
+  {title:'dim',ytId:'lT0DFdSj6lU'},
+  {title:'dusted',ytId:'U0dLjMXG0nQ'},
+  {title:'fudge',ytId:'fL-2RGCFaVc'},
+  {title:'seroin',ytId:'O6i9W7yWRlQ'},
+  {title:'stirs',ytId:'jfkYoNXRvUk'},
+];
+const nowPlaying=kaavishSongs[Math.floor(Math.random()*kaavishSongs.length)];
+let ytPlayer=null,isPlaying=false;
+window.addEventListener('load',function(){const tag=document.createElement('script');tag.src='https://www.youtube.com/iframe_api';document.head.appendChild(tag);});
+window.onYouTubeIframeAPIReady=function(){ytPlayer=new YT.Player('yt-player',{height:'1',width:'1',videoId:nowPlaying.ytId,playerVars:{autoplay:1,loop:1,playlist:nowPlaying.ytId,controls:0,modestbranding:1,playsinline:1},events:{onReady:function(e){e.target.setVolume(65);e.target.playVideo();isPlaying=true;document.getElementById('musicLabel').textContent='♪ '+nowPlaying.title;document.getElementById('musicBar').classList.remove('paused');}}});};
+function toggleYT(){if(!ytPlayer||typeof ytPlayer.pauseVideo!=='function')return;if(isPlaying){ytPlayer.pauseVideo();isPlaying=false;document.getElementById('musicBar').classList.add('paused');document.getElementById('musicLabel').textContent='♪ paused';}else{ytPlayer.playVideo();isPlaying=true;document.getElementById('musicBar').classList.remove('paused');document.getElementById('musicLabel').textContent='♪ '+nowPlaying.title;}}
+
+function showPage(name,el){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+name).classList.add('active');document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));if(el)el.classList.add('active');window.scrollTo(0,0);if(name==='games')setTimeout(()=>{initBalloons();initFlipCards();},100);}
+
+const memEmojis=['🎓','☕','📖','🌙','✨','🏆','🎵','💜'];
+let memFlipped=[],memMoves=0,memMatched=0,memLocked=false;
+function initMemory(){const all=[...memEmojis,...memEmojis].sort(()=>Math.random()-.5);memFlipped=[];memMoves=0;memMatched=0;memLocked=false;document.getElementById('memMoves').textContent=0;document.getElementById('memMatched').textContent=0;const g=document.getElementById('memGrid');g.innerHTML='';all.forEach(em=>{const c=document.createElement('div');c.className='mem-card hidden-face';c.dataset.em=em;c.textContent=em;c.onclick=()=>flipMemCard(c);g.appendChild(c);});}
+function flipMemCard(card){if(memLocked||card.classList.contains('flipped')||card.classList.contains('matched'))return;card.classList.remove('hidden-face');card.classList.add('flipped');memFlipped.push(card);if(memFlipped.length===2){memMoves++;document.getElementById('memMoves').textContent=memMoves;memLocked=true;if(memFlipped[0].dataset.em===memFlipped[1].dataset.em){memFlipped.forEach(c=>c.classList.add('matched'));memMatched++;document.getElementById('memMatched').textContent=memMatched;memFlipped=[];memLocked=false;}else{setTimeout(()=>{memFlipped.forEach(c=>{c.classList.remove('flipped');c.classList.add('hidden-face');});memFlipped=[];memLocked=false;},900);}}}
+initMemory();
+
+const popMsgs=['You earned this! 🎓','ACCA Legend! 🏆','So proud of you! 💜','Hamza Bhai rocks! ☕','You never gave up! 🌙','Keep shining! ✨','Worth every night! 📖','The world is yours! 🌍'];
+const bCols=['#c4b5fd','#f9a8d4','#93c5fd','#6ee7b7','#fcd34d','#fda4af','#a78bfa','#f472b6'];
+let balloons=[],popN=0,bRAF=null,bCvs=null,bCtx=null,bW=300,bH=200;
+function initBalloons(){bCvs=document.getElementById('balloon-canvas');if(!bCvs)return;bCtx=bCvs.getContext('2d');bW=bCvs.width;bH=bCvs.height;popN=0;document.getElementById('popCount').textContent=0;document.getElementById('popMsg').textContent='';balloons=[];for(let i=0;i<8;i++)balloons.push({x:30+Math.random()*(bW-60),y:bH+40+Math.random()*80,r:20+Math.random()*10,col:bCols[i],spd:.5+Math.random()*1.1,popped:false,msg:popMsgs[i],w:Math.random()*Math.PI*2,ws:.03+Math.random()*.02});if(bRAF)cancelAnimationFrame(bRAF);bCvs.onclick=popBalloon;animBalloons();}
+function animBalloons(){bCtx.clearRect(0,0,bW,bH);let alive=false;balloons.forEach(b=>{if(b.popped)return;alive=true;b.y-=b.spd;b.w+=b.ws;const cx=b.x+Math.sin(b.w)*4;bCtx.beginPath();bCtx.moveTo(cx,b.y+b.r);bCtx.lineTo(cx,b.y+b.r+18);bCtx.strokeStyle='rgba(100,80,150,.35)';bCtx.lineWidth=1.5;bCtx.stroke();bCtx.beginPath();bCtx.arc(cx,b.y,b.r,0,Math.PI*2);bCtx.fillStyle=b.col;bCtx.fill();bCtx.strokeStyle='rgba(255,255,255,.35)';bCtx.lineWidth=1.5;bCtx.stroke();bCtx.beginPath();bCtx.arc(cx-b.r*.3,b.y-b.r*.3,b.r*.18,0,Math.PI*2);bCtx.fillStyle='rgba(255,255,255,.45)';bCtx.fill();bCtx.beginPath();bCtx.arc(cx,b.y+b.r,2.5,0,Math.PI*2);bCtx.fillStyle=b.col;bCtx.fill();});if(alive)bRAF=requestAnimationFrame(animBalloons);}
+function popBalloon(e){const rect=bCvs.getBoundingClientRect();const mx=(e.clientX-rect.left)*(bW/rect.width),my=(e.clientY-rect.top)*(bH/rect.height);for(const b of balloons){if(b.popped)continue;const cx=b.x+Math.sin(b.w)*4;if(Math.hypot(mx-cx,my-b.y)<b.r+6){b.popped=true;popN++;document.getElementById('popCount').textContent=popN;document.getElementById('popMsg').textContent=b.msg;for(let k=0;k<8;k++){const a=(k/8)*Math.PI*2;bCtx.beginPath();bCtx.arc(cx+Math.cos(a)*b.r,b.y+Math.sin(a)*b.r,3,0,Math.PI*2);bCtx.fillStyle=b.col;bCtx.fill();}break;}}}
+
+const wsTargets=['ACCA','HAMZA','KAAVISH','COFFEE','STUDY'];
+let wsGrid=[],wsFound=[],wsSel=[],wsPlaced=[];
+function buildWS(){const N=8;wsGrid=Array.from({length:N},()=>Array(N).fill(''));wsPlaced=[];wsFound=[];wsSel=[];const dirs=[[0,1],[1,0],[1,1]];for(const word of wsTargets){let ok=false;for(let t=0;t<200&&!ok;t++){const d=dirs[Math.floor(Math.random()*dirs.length)];const mr=N-d[0]*(word.length-1)-1,mc=N-d[1]*(word.length-1)-1;if(mr<0||mc<0)continue;const r=Math.floor(Math.random()*(mr+1)),c=Math.floor(Math.random()*(mc+1));let fits=true;for(let k=0;k<word.length;k++){const nr=r+d[0]*k,nc=c+d[1]*k;if(wsGrid[nr][nc]!==''&&wsGrid[nr][nc]!==word[k]){fits=false;break;}}if(fits){const cells=[];for(let k=0;k<word.length;k++){const nr=r+d[0]*k,nc=c+d[1]*k;wsGrid[nr][nc]=word[k];cells.push(nr+'-'+nc);}wsPlaced.push({word,cells});ok=true;}}}for(let r=0;r<N;r++)for(let c=0;c<N;c++)if(!wsGrid[r][c])wsGrid[r][c]=String.fromCharCode(65+Math.floor(Math.random()*26));const g=document.getElementById('wsGrid');g.innerHTML='';for(let r=0;r<N;r++)for(let c=0;c<N;c++){const el=document.createElement('div');el.className='ws-cell';el.textContent=wsGrid[r][c];el.dataset.pos=r+'-'+c;el.onclick=()=>wsClick(el);g.appendChild(el);}const w=document.getElementById('wsWords');w.innerHTML='';wsTargets.forEach(wd=>{const s=document.createElement('span');s.className='ws-word';s.textContent=wd;s.id='wsw-'+wd;w.appendChild(s);});}
+function wsClick(cell){if(cell.classList.contains('found'))return;cell.classList.toggle('selected');const pos=cell.dataset.pos;wsSel.includes(pos)?wsSel=wsSel.filter(p=>p!==pos):wsSel.push(pos);for(const entry of wsPlaced){if(wsFound.includes(entry.word))continue;if(entry.cells.every(c=>wsSel.includes(c))&&entry.cells.length===wsSel.length){wsFound.push(entry.word);entry.cells.forEach(p=>{const el=document.querySelector('[data-pos="'+p+'"]');if(el){el.classList.add('found');el.classList.remove('selected');}});const wEl=document.getElementById('wsw-'+entry.word);if(wEl)wEl.classList.add('found-word');wsSel=[];}}}
+buildWS();
+
+const flipMessages=[
+  {icon:'🌙',hint:'tap to flip',star:'✨',msg:'You stayed up\nso many nights.\nEvery single one\nwas worth it.'},
+  {icon:'☕',hint:'flip me',star:'💜',msg:'Coffee + Kaavish\n+ you = the most\ndedicated person\nI have ever seen.'},
+  {icon:'📖',hint:'go on',star:'🌸',msg:'You read things\nno one else bothered\nto understand.\nThat is your edge.'},
+  {icon:'🎓',hint:'discover',star:'🎉',msg:'ACCA Qualified.\nThose two words\ncarry years of\nquiet sacrifice.'},
+  {icon:'🏆',hint:'open me',star:'🌟',msg:'You didn\'t just\npass exams. You\nbecame someone\nirreplaceable.'},
+  {icon:'🤍',hint:'tap here',star:'💫',msg:'Your sister is so\nproud of you.\nMore than words\ncan ever say.'},
+  {icon:'✨',hint:'flip it',star:'🌙',msg:'The world is\nabout to feel\nyour presence,\nHamza Bhai.'},
+  {icon:'🎵',hint:'last one!',star:'🎓',msg:'Kaavish played.\nYou studied.\nHistory was\nbeing made. 💜'},
+];
+function initFlipCards(){const g=document.getElementById('flipGrid');if(!g||g.children.length>0)return;flipMessages.forEach(d=>{const wrap=document.createElement('div');wrap.className='flipcard';wrap.innerHTML=`<div class="flipcard-inner"><div class="flipcard-front"><div class="fc-icon">${d.icon}</div><div class="fc-hint">${d.hint}</div></div><div class="flipcard-back"><div class="fc-star">${d.star}</div><div class="fc-msg">${d.msg}</div></div></div>`;wrap.onclick=()=>wrap.classList.toggle('flipped');g.appendChild(wrap);});}
+
+function launchConfetti(){const colors=['#c4b5fd','#f472b6','#818cf8','#34d399','#fbbf24','#60a5fa','#f87171'];const parent=document.getElementById('page-final');for(let i=0;i<140;i++){const el=document.createElement('div');el.className='confetti-piece';el.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*15}%;background:${colors[Math.floor(Math.random()*colors.length)]};transform:rotate(${Math.random()*360}deg);animation-duration:${2+Math.random()*2}s;animation-delay:${Math.random()*.5}s;border-radius:${Math.random()>.5?'50%':'2px'};`;parent.appendChild(el);setTimeout(()=>el.remove(),4500);}}
+</script>
+</body>
+</html>
